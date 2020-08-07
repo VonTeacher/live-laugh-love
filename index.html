@@ -22,9 +22,13 @@
     .second, #two {
       font-family: 'Italianno', cursive;
     }
-    .third, #three {}
-    #nt {
+    .nt {
       font-family: Montserrat;
+    }
+    #retry {
+      box-shadow: 1px 1px 1px blueviolet;
+      padding: 3px;
+      color: blueviolet;
     }
   </style>
 </head>
@@ -37,12 +41,13 @@
     <span class='l third'>Love</span>
     <span class='punctuation'>?</span>
   </p>
-  <p id="nt">No thanks. I'd rather...</p>
+  <p class="nt">No thanks. I'd rather...</p>
   <p id="lll">
     <span id='one' class='no'></span><span class='punctuation'>,</span>
     <span id='two' class='no'></span><span class='punctuation'>,</span>
     <span id='three' class='no'></span><span class='punctuation'>.</span>
   </p>
+  <div class="nt">Not happy with these options? <button id="retry" onClick="liveLaughLove()">Live, laugh, love some more</button></div>
   <script>
     const VERBS = [
       "Accept",
@@ -480,20 +485,25 @@
       "Wish",
       "Write"
     ]
-    let slogan = []
-    for (let i = 0; i < 3; i++) {
-      slogan.push(VERBS[Math.floor(Math.random() * VERBS.length)]);
+    function liveLaughLove() {
+      let slogan = []
+      for (let i = 0; i < 3; i++) {
+        slogan.push(VERBS[Math.floor(Math.random() * VERBS.length)]);
+      }
+      let dedup = [new Set(slogan)];
+      if (dedup.length < 3) {
+        slogan.push(VERBS[Math.floor(Math.random() * VERBS.length)]);
+      }
+      let lll = document.getElementById('lll');
+      const positions = ['one', 'two', 'three'];
+      positions.forEach( function(position, index) {
+        let element = document.getElementById(position);
+        element.textContent = slogan[index];
+      })
     }
-    let dedup = [new Set(slogan)];
-    if (dedup.length < 3) {
-      slogan.push(VERBS[Math.floor(Math.random() * VERBS.length)]);
-    }
-    let lll = document.getElementById('lll');
-    const positions = ['one', 'two', 'three'];
-    positions.forEach( function(position, index) {
-      let element = document.getElementById(position);
-      element.textContent = slogan[index];
-    })
+    (function() {
+      liveLaughLove();
+    })();
   </script>
 </body>
 </html>
