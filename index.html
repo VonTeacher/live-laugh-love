@@ -8,7 +8,20 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Italianno">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <style>
-    #lll, .l {
+    #original, #lll {
+      text-align: center;
+    }
+    #live, #one {
+      text-align: left;
+      font-family: 'Petit Formal Script', cursive;
+    }
+    #laugh, #two {
+      font-family: 'Italianno', cursive;
+    }
+    #love, #three {
+      text-align: right;
+    }
+    .slogan {
       font-size: 48px;
       letter-spacing: 5px;
     }
@@ -16,13 +29,7 @@
       font-size: 48px;
       margin-right: 10px;
     }
-    .first, #one {
-      font-family: 'Petit Formal Script', cursive;
-    }
-    .second, #two {
-      font-family: 'Italianno', cursive;
-    }
-    .nt {
+    .no-thanks {
       font-family: Montserrat;
     }
     #retry {
@@ -33,21 +40,39 @@
   </style>
 </head>
 <body>
-  <p>
-    <span class='l first'>Live</span>
-    <span class='punctuation'>,</span>
-    <span class='l second'>Laugh</span>
-    <span class='punctuation'>,</span>
-    <span class='l third'>Love</span>
-    <span class='punctuation'>?</span>
-  </p>
-  <p class="nt">No thanks. I'd rather...</p>
-  <p id="lll">
-    <span id='one' class='no'></span><span class='punctuation'>,</span>
-    <span id='two' class='no'></span><span class='punctuation'>,</span>
-    <span id='three' class='no'></span><span class='punctuation'>.</span>
-  </p>
-  <div class="nt">Not happy with these options? <button id="retry" onClick="liveLaughLove()">Live, laugh, love some more</button></div>
+  <div id="original" class="slogan">
+    <div id='live'>
+      <span>Live</span>
+      <!-- <span class='punctuation'>,</span> -->
+    </div>
+    <div id='laugh'>
+      <span>Laugh</span>
+      <!-- <span class='punctuation'>,</span> -->
+    </div>
+    <div id='love'>
+      <span>Love</span>
+      <!-- <span class='punctuation'>?</span> -->
+    </div>
+  </div>
+
+  <p class="no-thanks">No thanks. I'd rather...</p>
+
+  <div id="lll" class="slogan">
+    <div id='one'>
+      <span></span>
+      <!-- <span class='punctuation'>,</span> -->
+    </div>
+    <div id='two'>
+      <span></span>
+      <!-- <span class='punctuation'>,</span> -->
+    </div>
+    <div id='three'>
+      <span></span>
+      <!-- <span class='punctuation'>.</span> -->
+    </div>
+  </div>
+
+  <p class="no-thanks">Not happy with these options? <button id="retry" onClick="liveLaughLove()">Live, laugh, love some more</button></p>
   <script>
     const VERBS = [
       "Accept",
