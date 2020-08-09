@@ -1,0 +1,36 @@
+body {
+  max-width: 360px;
+  margin: auto;
+}
+
+#original, #lll {
+  text-align: center;
+  font-size: 48px;
+  letter-spacing: 10px;
+}
+
+#live, #one {
+  text-align: left;
+  font-family: 'Petit Formal Script', cursive;
+}
+
+#laugh, #two {
+  font-family: 'Italianno', cursive;
+}
+
+#love, #three {
+  text-align: right;
+}
+
+.no-thanks {
+  font-family: Montserrat;
+}
+
+#retry {
+  height: 40px;
+  margin-top: 10px;
+  box-shadow: 1px 1px 1px blueviolet;
+  border-radius: 5px;
+  padding: 3px;
+  color: blueviolet;
+}
