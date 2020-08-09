@@ -4,8 +4,19 @@ body {
   align-items: center;
   max-width: 360px;
   margin: auto;
-  background-image: linear-gradient(#eee, #aaa);
+  background-image: url(./wallpaper.jpg);
   height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  height: 100%;
 }
 
 #original, #lll {
@@ -74,16 +85,23 @@ frame:after {
 #love, #three {}
 
 .no-thanks {
+  font-size: 20px;
   font-family: Montserrat;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 3px 5px;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 10;
 }
 
 #retry {
   height: 40px;
-  margin-top: 10px;
+  margin: 0;
   box-shadow: 1px 1px 1px blueviolet;
   border-radius: 5px;
-  padding: 8px;
   color: blueviolet;
-  font-size: 16px;
+  font-size: 20px;
   font-family: Montserrat, sans-serif;
 }
