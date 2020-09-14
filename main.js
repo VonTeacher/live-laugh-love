@@ -44,7 +44,6 @@ const VERBS = [
   "Bear",
   "Beat",
   "Become",
-  "Beg",
   "Begin",
   "Behave",
   "Believe",
@@ -52,9 +51,7 @@ const VERBS = [
   "Bend",
   "Bet",
   "Bind",
-  "Bite",
   "Bleed",
-  "Blow",
   "Boil",
   "Borrow",
   "Bounce",
@@ -95,14 +92,11 @@ const VERBS = [
   "Continue",
   "Convince",
   "Cook",
-  "Cost",
   "Count",
   "Crawl",
   "Create",
-  "Creep",
   "Criticize",
   "Cry",
-  "Cut",
   "Dance",
   "Dare",
   "Deal",
@@ -231,10 +225,9 @@ const VERBS = [
   "Learn",
   "Leave",
   "Lend",
-  "Lie (in bed)",
+  "Lie",
   "Lift",
   "Light",
-  "Lie (not to tell the truth)",
   "Like",
   "Listen",
   "Look",
@@ -354,7 +347,6 @@ const VERBS = [
   "Settle",
   "Sew",
   "Shake",
-  "Shall",
   "Shed",
   "Shine",
   "Shoot",
@@ -379,7 +371,6 @@ const VERBS = [
   "Spell",
   "Spend",
   "Spill",
-  "Spit",
   "Spread",
   "Squat",
   "Squeeze",
@@ -387,7 +378,6 @@ const VERBS = [
   "Stand",
   "Start",
   "Steal",
-  "Stick",
   "Sting",
   "Stink",
   "Stir",
@@ -406,7 +396,6 @@ const VERBS = [
   "Survive",
   "Swear",
   "Sweep",
-  "Swell",
   "Swim",
   "Swing",
   "Swoon",
@@ -440,7 +429,6 @@ const VERBS = [
   "Wear",
   "Weep",
   "Weigh",
-  "Whip",
   "Will",
   "Win",
   "Wish",
@@ -449,24 +437,89 @@ const VERBS = [
   "Zoom",
 ]
 
+const OBSCENE = [
+  "Arouse",
+  "Asphyxiate",
+  "Assassinate",
+  "Barf",
+  "Beg",
+  "Bind",
+  "Bite",
+  "Blow",
+  "Bomb",
+  "Bugger",
+  "Castrate",
+  "Choke",
+  "Creep",
+  "Cuckold",
+  "Cut",
+  "Diddle",
+  "Distend",
+  "Dock",
+  "Dominate",
+  "Eat-out",
+  "Ejaculate",
+  "Felch",
+  "Finger",
+  "Fuck",
+  "Gag",
+  "Gargle",
+  "Gorp",
+  "Grunt",
+  "Jerk",
+  "Jill",
+  "Manhandle",
+  "Masturbate",
+  "Munch",
+  "Orgasm",
+  "Peg",
+  "Penetrate",
+  "Pierce",
+  "Pinch",
+  "Queef",
+  "Shag",
+  "Shit",
+  "Slap",
+  "Slurp",
+  "Smakglad",
+  "Spank",
+  "Spit",
+  "Squirt",
+  "Stick",
+  "Strangle",
+  "Suck",
+  "Suckle",
+  "Swallow",
+  "Swell",
+  "Tickle",
+  "Twist",
+  "Whip",
+  "Yank",
+]
+
 const POSITIONS = ['one', 'two', 'three'];
 
-function addWordTo (slogan) {
-  slogan.push(VERBS[Math.floor(Math.random() * VERBS.length)]);
+function addWordTo (slogan, naughtyOK) {
+  if (naughtyOK) {
+    WORDS = VERBS.concat(OBSCENE)
+  } else {
+    WORDS = VERBS
+  }
+  slogan.push(WORDS[Math.floor(Math.random() * WORDS.length)]);
   return slogan;
 }
 
-function populate (slogan, numberOfWords) {
+function populate (slogan, numberOfWords, naughtyOK) {
   for (let i = 0; i < numberOfWords; i++) {
-    addWordTo(slogan);
+    addWordTo(slogan, naughtyOK);
   }
   return slogan;
 }
 
-function removeDuplicateAndRepopulate (slogan) {
+function removeDuplicateAndRepopulate (slogan, isNaughty) {
   let uniqueWords = [...new Set(slogan)];
   while (uniqueWords.length < 3) {
-    addWordTo(uniqueWords);
+    addWordTo(uniqueWords, isNaughty);
   }
   return uniqueWords;
 }
@@ -480,8 +533,11 @@ function setNewVerbs (slogan, position) {
 
 function liveLaughLove() {
   let slogan = []
-  slogan = populate(slogan, 3);
-  slogan = removeDuplicateAndRepopulate(slogan);
+  let isNaughty = document.getElementById('naughty').checked
+  console.log('isNaughty check state: ', isNaughty)
+
+  slogan = populate(slogan, 3, isNaughty);
+  slogan = removeDuplicateAndRepopulate(slogan, isNaughty);
   setNewVerbs(slogan, POSITIONS);
 }
 

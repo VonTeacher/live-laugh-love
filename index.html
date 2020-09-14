@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Italianno">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link rel="stylesheet" href="styles.css">
-  <script src="main.js"></script>
 </head>
 <body>
   <div class="frame">
@@ -25,7 +24,7 @@
     </div>
   </div>
 
-  <p class="no-thanks">No thanks. I'd rather...</p>
+  <div class="no-thanks">No thanks. I'd rather...</div>
 
   <div class="frame">
     <div id="lll" class="slogan">
@@ -35,11 +34,17 @@
     </div>
   </div>
 
-  <p class="no-thanks">
+  <div class="no-thanks">
     Not happy with these affirmations?
     <button id="retry" onClick="liveLaughLove()">
       Re-roll them
     </button>
-  </p>
+    <br />
+    <input type="checkbox" id="naughty" name="naughty">
+    <label for="naughty">(Sprinkle in some naughty)</label><br>
+  </div>
+
+  <script src="main.js"></script>
+
 </body>
 </html>
