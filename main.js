@@ -534,7 +534,6 @@ function setNewVerbs (slogan, position) {
 function liveLaughLove() {
   let slogan = []
   let isNaughty = document.getElementById('naughty').checked
-  console.log('isNaughty check state: ', isNaughty)
 
   slogan = populate(slogan, 3, isNaughty);
   slogan = removeDuplicateAndRepopulate(slogan, isNaughty);
