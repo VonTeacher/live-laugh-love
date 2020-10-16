@@ -500,12 +500,16 @@ const OBSCENE = [
 
 const POSITIONS = ['one', 'two', 'three'];
 
-function addWordTo (slogan, naughtyOK) {
+function addNaughty(naughtyOK) {
   if (naughtyOK) {
-    WORDS = VERBS.concat(OBSCENE)
+    return VERBS.concat(OBSCENE)
   } else {
-    WORDS = VERBS
+    return VERBS
   }
+}
+
+function addWordTo (slogan, naughtyOK) {
+  WORDS = addNaughty(naughtyOK)
   slogan.push(WORDS[Math.floor(Math.random() * WORDS.length)]);
   return slogan;
 }
