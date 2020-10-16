@@ -545,6 +545,4 @@ function liveLaughLove() {
   setNewVerbs(slogan, POSITIONS);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  liveLaughLove();
-})();
+liveLaughLove();
