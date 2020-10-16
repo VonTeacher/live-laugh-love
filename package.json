@@ -2,6 +2,9 @@
   "devDependencies": {
     "jest": "^26.5.3"
   },
+  "jest": {
+    "testMatch": ["**/tests/**/*.js?(x)", "**/?(*.)+(test).js?(x)"]
+  },
   "scripts": {
     "test": "jest"
   }
