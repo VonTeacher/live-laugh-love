@@ -476,6 +476,7 @@ const OBSCENE = [
   "Penetrate",
   "Pierce",
   "Pinch",
+  "Punish",
   "Queef",
   "Shag",
   "Shit",
